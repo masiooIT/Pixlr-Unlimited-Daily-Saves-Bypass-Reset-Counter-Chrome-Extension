@@ -1,0 +1,43 @@
+{
+    "name": "Pixlr Reset",
+    "version": "1.0",
+    "description": "Reset and bypass Pixlr.com daily saves limit - unlimited daily saves",
+    "manifest_version": 3,
+    "background": {
+      "service_worker": "background.js"
+    },
+    "icons": {
+      "16": "logo/logo-16.png",
+      "48": "logo/logo-48.png",
+      "128": "logo/logo-128.png"
+  },
+    "content_scripts": [
+      {
+            "matches": ["<all_urls>"],
+            "js": ["document_start.js"],
+            "run_at": "document_end"
+      },
+      {
+          "matches": ["<all_urls>"],
+          "js": ["content.js"],
+          "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [{
+      "resources": ["inject_start.js"],
+      "matches": ["<all_urls>"]
+    }],
+
+    "action": {
+      "default_popup": "popup.html"
+    },
+
+    "host_permissions": [
+        "*://*.pixlr.com/*"
+    ],
+    "permissions": [
+        "tabs",
+      "contextMenus",
+      "storage", "activeTab", "scripting"
+    ]
+  }

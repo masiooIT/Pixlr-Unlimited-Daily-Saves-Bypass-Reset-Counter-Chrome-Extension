@@ -1,0 +1,19 @@
+body {
+  width: 200px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.span-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: green;
+}
+
+.button {
+  margin-top: 10px;
+}
